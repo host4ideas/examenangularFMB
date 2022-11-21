@@ -1,0 +1,41 @@
+<div class="card-container">
+  <div *ngIf="cubo" class="card mb-3" style="max-width: 540px">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img
+          width="300"
+          src="{{ cubo.imagen }}"
+          class="img-fluid rounded-start"
+          alt="..."
+        />
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">{{ cubo.modelo }}</h5>
+          <p class="card-text">Precio: {{ cubo.precio }}</p>
+          <p class="card-text">Valoración: {{ cubo.valoracion }}</p>
+          <p class="card-text">Precio: {{ cubo.precio }}</p>
+          <p
+            class="card-text btn btn-danger"
+            (click)="realizarCompra()"
+            routerLinkActive="router-link-active"
+          >
+            Comprar modelo
+          </p>
+          <h5>Comentarios</h5>
+          <div
+            style="border: 1px solid black; border-radius: 5px"
+            *ngFor="let comentario of comentarios"
+          >
+            <p class="card-text">
+              {{ comentario.comentario }}
+            </p>
+            <p class="card-text">
+              Fecha: {{ comentario.fechaComentario.split("T")[0] }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

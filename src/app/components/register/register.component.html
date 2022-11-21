@@ -1,0 +1,28 @@
+<form class="m-5">
+  <label>Email</label>
+  <input
+    type="email"
+    class="form-control"
+    name="cajaEmail"
+    required
+    #cajaEmail
+  /><br />
+  <label>Nombre</label>
+  <input
+    type="text"
+    class="form-control"
+    name="cajaNombre"
+    required
+    #cajaNombre
+  /><br />
+  <label>Contraseña</label>
+  <input
+    type="password"
+    class="form-control"
+    name="cajaPass"
+    #cajaPass
+    required
+	
+  /><br />
+  <button type="submit" class="btn btn-info" (click)="login()">Login</button>
+</form>

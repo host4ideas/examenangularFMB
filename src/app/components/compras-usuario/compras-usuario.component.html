@@ -1,0 +1,22 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Fecha del pedido</th>
+      <th>ID Modelo</th>
+      <th>ID Pedido</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let compra of compras">
+      <td>
+        {{ compra.fechaPedido }}
+      </td>
+      <td>
+        {{ compra.idCubo }}
+      </td>
+      <td>
+        {{ compra.idPedido }}
+      </td>
+    </tr>
+  </tbody>
+</table>

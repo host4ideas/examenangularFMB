@@ -1,0 +1,114 @@
+<nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <a
+      class="navbar-brand"
+      [routerLink]="['/']"
+      routerLinkActive="router-link-active"
+    >
+      <img width="100" src="../../../assets/images/home-icon.png" alt="" />
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            [routerLink]="['/cubos']"
+            routerLinkActive="router-link-active"
+          >
+            Cubos
+          </a>
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Marcas
+          </a>
+          <ul class="dropdown-menu">
+            <li *ngFor="let marca of marcas">
+              <a
+                class="dropdown-item"
+                [routerLink]="['cubos-marca', marca]"
+                routerLinkActive="router-link-active"
+              >
+                {{ marca }}
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Modelos
+          </a>
+          <ul class="dropdown-menu">
+            <li *ngFor="let cubo of cubos">
+              <a
+                class="dropdown-item"
+                [routerLink]="['cubos-detalles', cubo.idCubo]"
+                routerLinkActive="router-link-active"
+              >
+                {{ cubo.modelo }}
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            [routerLink]="['/compras-usuario']"
+            routerLinkActive="router-link-active"
+          >
+            Ver tus compras
+          </a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            [routerLink]="['/login']"
+            routerLinkActive="router-link-active"
+          >
+            Login
+          </a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            [routerLink]="['/register']"
+            routerLinkActive="router-link-active"
+          >
+            Register
+          </a>
+        </li>
+        <li class="nav-item">
+          <a
+            style="cursor: pointer"
+            class="nav-link"
+            (click)="logout()"
+            routerLinkActive="router-link-active"
+          >
+            Logout
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

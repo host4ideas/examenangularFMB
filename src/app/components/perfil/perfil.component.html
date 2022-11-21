@@ -1,0 +1,9 @@
+<div *ngIf="perfil" style="display: flex; justify-content: center" class="mt-5">
+  <div class="card" style="width: 18rem">
+    <div class="card-body">
+      <h5 class="card-title">Estás loggeado</h5>
+      <p class="card-text">Email: {{ perfil.email }}</p>
+      <p class="card-text">Nombre: {{ perfil.nombre }}</p>
+    </div>
+  </div>
+</div>
