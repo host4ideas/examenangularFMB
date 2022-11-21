@@ -23,9 +23,9 @@ export class ComprasUsuarioComponent implements OnInit {
   ) {}
 
   /**
-   * Carga los empleados del servidor. Actualiza la variable public plantilla para mostrar los empleados al usuario.
+   * Carga las compras del usuario del servidor.
    */
-  async loadEmpleados(): Promise<void> {
+  async loadCompras(): Promise<void> {
     /*
       LLamamos al metodo auth para recoger la funcion copia provista del header.
       Para no perder el contexto de la peticion original, le damos el contexto del service al que pertenece.
@@ -47,6 +47,6 @@ export class ComprasUsuarioComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.loadEmpleados();
+    this.loadCompras();
   }
 }

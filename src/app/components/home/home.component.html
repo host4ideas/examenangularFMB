@@ -1,15 +1,21 @@
-<div class="card" style="width: 18rem">
-  <div class="card-body">
-    <h5 class="card-title">Bienvenido</h5>
-    <p class="card-text">Somos un lugar donde...</p>
-    <p class="card-text">¿Te los quieres perder?</p>
-  </div>
-  <div class="card-body">
-    <a
-      [routerLink]="['/cubos']"
-      routerLinkActive="router-link-active"
-      class="btn btn-primary"
-      >Descrúbenos</a
-    >
+<div class="m-3">
+  <div class="row row-cols-1 row-cols-md-2 g-4">
+    <div class="col" *ngFor="let cubo of cubos">
+      <div class="card">
+        <div class="card-body ,-3">
+          <img width="100" src="{{ cubo.imagen }}" alt="" />
+          <h5 class="card-title">{{ cubo.modelo }}</h5>
+          <p class="card-text">{{ cubo.precio }}</p>
+          <router-link
+            class="card-text btn btn-primary"
+            [routerLink]="['/cubos-detalles', cubo.idCubo]"
+            routerLinkActive="router-link-active"
+            routerLinkActive="router-link-active"
+          >
+            Detalles
+          </router-link>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

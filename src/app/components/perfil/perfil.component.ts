@@ -21,7 +21,7 @@ export class PerfilComponent implements OnInit {
   ) {}
 
   /**
-   * Carga los empleados del servidor. Actualiza la variable public plantilla para mostrar los empleados al usuario.
+   * Carga el perfil del usuario del servidor.
    */
   async loadPerfil(): Promise<void> {
     /*

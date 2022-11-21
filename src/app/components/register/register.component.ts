@@ -28,7 +28,7 @@ export class RegisterComponent implements OnInit {
     const email = this.cajaEmail.nativeElement.value;
     const pass = this.cajaPass.nativeElement.value;
 
-    if (email && pass) {
+    if (email && pass && nombre) {
       const newUser = new User(0, nombre, email, pass);
 
       this.authService.register(newUser).then(() => {

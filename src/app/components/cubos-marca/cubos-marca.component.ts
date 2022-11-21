@@ -28,7 +28,6 @@ export class CubosMarcaComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((params: ParamMap) => {
-      // Parseamos a número
       const marca = params.get('marca')!;
       this.marca = marca;
       this.cubosService.getCubosMarca(marca).subscribe((res) => {
