@@ -86,25 +86,14 @@ export class CubosServiceService {
   /**
    * Petición get para recoger todas las compras del usuario
    * @param {string} idcubo ID del cubo para la petición
-   * @param {HttpHeaders} headers Insertamos los headers en authService para securizar la peticion
+   * @param {HttpHeaders}  Insertamos los headers en authService para securizar la peticion
    * @returns {Observable<any>} Observable al cual nos suscribiremos en el componente
    */
-  realizarCompra(idcubo: string): Observable<any> {
-    const token = localStorage.getItem('token');
-
-    console.log(token);
-
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        "Authorization": 'bearer ' + token,
-      }),
-    };
-
-    console.log(httpOptions);
+  realizarCompra(idcubo: string, headers: HttpHeaders): Observable<any> {
+    headers.set('Cotent-Type', 'application/json');
 
     const request =
       environment.API_TIENDAS + '/api/Compra/InsertarPedido/' + idcubo;
-    return this._http.post(request, httpOptions);
+    return this._http.post(request, null, { headers: headers });
   }
 }

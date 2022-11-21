@@ -27,11 +27,25 @@ export class CubosDetallesComponent implements OnInit {
   ) {}
 
   async realizarCompra(): Promise<void> {
-    this.cubosService
-      .realizarCompra(this.cubo.idCubo.toString())
-      .subscribe((res) => {
-        this.router.navigate(['/compras-usuario']);
-      });
+    /*
+      LLamamos al metodo auth para recoger la funcion copia provista del header.
+      Para no perder el contexto de la peticion original, le damos el contexto del service al que pertenece.
+    */
+    const validatedCall = await this.authService.authInterceptor(
+      this.cubosService.realizarCompra.bind(this.cubosService),
+      this.cubo.idCubo
+    );
+
+    /*
+        La funcion copia de auth es la misma que una peticion http.
+        Si hay un código existente en localStorage, pero no es válido, devolverá un error 401 y se reseteara el token.
+      */
+    validatedCall().subscribe(
+      (res: any) => this.router.navigate(['/compras-usuario']),
+      (err: HttpErrorResponse) => {
+        if (err.status == 401) this.router.navigate(['/login']);
+      }
+    );
   }
 
   ngOnInit(): void {
